@@ -1,0 +1,32 @@
+logging:
+  level:
+    root: info
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+
+server:
+  port: 8080
+
+cloud:
+  aws:
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    sqs:
+      fifo:
+        string:
+          name: string-01.fifo
+          url: https://sqs.ap-northeast-2.amazonaws.com/235446887132/string-01.fifo
+        object:
+          name: object-01.fifo
+          url: https://sqs.ap-northeast-2.amazonaws.com/235446887132/object-01.fifo
+      standard:
+        string.name: string-01
+        object.name: object-01
+    credentials:
+      accessKey: ${AWS_CREDENTIALS_ACCESS_KEY}
+      secretKey: ${AWS_CREDENTIALS_SECRET_KEY}
+
